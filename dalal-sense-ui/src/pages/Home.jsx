@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import StockCard from '../components/StockCard'
 
-const API = 'http://localhost:8000'
+const API = 'https://dalal-sense-1.onrender.com'
 
 export default function Home() {
   const [stocks,  setStocks]  = useState([])

@@ -3,7 +3,7 @@ import axios from 'axios'
 import ScoreRing from '../components/ScoreRing'
 import FactorBar from '../components/FactorBar'
 
-const API = 'http://localhost:8000'
+const API = 'https://dalal-sense-1.onrender.com'
 
 const fields = [
   { key:'roce',             label:'ROCE (%)',             hint:'Return on Capital Employed', default:20 },
