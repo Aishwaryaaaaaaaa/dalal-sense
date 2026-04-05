@@ -7,4 +7,4 @@ matplotlib
 yfinance
 requests
 beautifulsoup4
-univcorn
+uvicorn
