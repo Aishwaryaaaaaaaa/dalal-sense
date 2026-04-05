@@ -8,3 +8,4 @@ yfinance
 requests
 beautifulsoup4
 uvicorn
+fastapi
