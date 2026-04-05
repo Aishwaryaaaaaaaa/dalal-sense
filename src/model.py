@@ -6,7 +6,8 @@ import joblib
 
 FEATURE_COLS = [
     "roce", "roe", "revenue_cagr", "profit_cagr",
-    "debt_to_equity", "promoter_holding", "pe_ratio"
+    "debt_to_equity", "promoter_holding", "pe_ratio",
+    "pe_penalty", "valuation_score"
 ]
 
 def train(path="data/manual_data.csv"):
@@ -19,6 +20,12 @@ def train(path="data/manual_data.csv"):
     print(f"Labelled stocks:   {len(labelled)}")
     print(f"Unlabelled stocks: {len(unlabelled)}")
     print(f"Unlabelled:        {list(unlabelled['symbol'])}\n")
+
+    labelled['pe_penalty']      = (labelled['pe_ratio'] > 45).astype(int)
+    unlabelled['pe_penalty']    = (unlabelled['pe_ratio'] > 45).astype(int)
+
+    labelled['valuation_score']   = labelled['roce'] / (labelled['pe_ratio'] + 1)
+    unlabelled['valuation_score'] = unlabelled['roce'] / (unlabelled['pe_ratio'] + 1)
 
     for col in FEATURE_COLS:
         med = labelled[col].median()
@@ -58,8 +65,16 @@ def score_all(model, unlabelled):
 
     results = unlabelled[["symbol"] + FEATURE_COLS].copy()
     results["compounder_score"] = scores
-    results = results.sort_values("compounder_score", ascending=False)
 
+    # Valuation cap — no stock with PE > 50 can score above 90
+    high_pe = results["pe_ratio"] > 50
+    results.loc[high_pe, "compounder_score"] = results.loc[high_pe, "compounder_score"].clip(upper=88)
+
+    # Revenue cap — no stock with negative revenue CAGR can score above 70
+    neg_rev = results["revenue_cagr"] < 0
+    results.loc[neg_rev, "compounder_score"] = results.loc[neg_rev, "compounder_score"].clip(upper=70)
+
+    results = results.sort_values("compounder_score", ascending=False)
     results.to_csv("data/scores.csv", index=False)
 
     print("--- Compounder Scores ---")

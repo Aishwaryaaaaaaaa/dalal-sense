@@ -56,7 +56,7 @@ export default function Score() {
                     fontSize:15, outline:'none', fontWeight:500}}/>
         </div>
 
-        <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:12}}>
+        <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(200px, 1fr))', gap:12}}>
           {fields.map(f => (
             <div key={f.key}>
               <label style={{fontSize:12, color:'#666', display:'block', marginBottom:6}}>
@@ -89,8 +89,7 @@ export default function Score() {
       {result && (
         <div style={{background:'#111', border:'1px solid #1e1e1e',
                      borderRadius:16, padding:'1.5rem'}}>
-          <div style={{display:'grid', gridTemplateColumns:'auto 1fr', gap:'2rem',
-                       alignItems:'start'}}>
+          <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(200px, 1fr))', gap:'2rem', alignItems:'start'}}>
             <div style={{display:'flex', flexDirection:'column', alignItems:'center', gap:12}}>
               <ScoreRing score={Math.round(result.compounder_score)} size={140}/>
               <div style={{textAlign:'center'}}>

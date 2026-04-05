@@ -40,8 +40,9 @@ export default function Home() {
         </p>
       </div>
 
-      <div style={{display:'grid', gridTemplateColumns:'repeat(3,1fr)',
-                   gap:12, marginBottom:'2rem'}}>
+      <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(140px, 1fr))', gap:12, marginBottom:'2rem'}}>
+        gridTemplateColumns:'repeat(auto-fill, minmax(260px, 1fr))'
+                   
         {[
           ['Stocks scored',  stocks.length, '#7F77DD'],
           ['Score above 75', strong,        '#1D9E75'],
@@ -82,7 +83,7 @@ export default function Home() {
         </div>
       ) : (
         <div style={{display:'grid',
-                     gridTemplateColumns:'repeat(auto-fill, minmax(300px, 1fr))',
+                     gridTemplateColumns:'repeat(auto-fill, minmax(260px, 1fr))',
                      gap:16}}>
           {filtered.map(s => <StockCard key={s.symbol} stock={s}/>)}
         </div>
