@@ -38,6 +38,7 @@ def cap_label(mktcap):
 # ── Header ──────────────────────────────────────────────
 st.markdown("## 📈 Dalal Sense")
 st.markdown("Compounder Score for every NSE stock — backed by real financials.")
+st.markdown ("Made by Aishwarya Jha • 17")
 st.divider()
 
 # ── Tabs ────────────────────────────────────────────────
