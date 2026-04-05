@@ -41,19 +41,20 @@ def train(path="data/manual_data.csv"):
         min_samples_leaf=2,
         random_state=42
     )
-
-    cv = cross_val_score(model, X, y, cv=5, scoring="accuracy")
-    print(f"Cross-val accuracy: {cv.round(2)}  →  Mean: {cv.mean():.2f}\n")
-
-    model.fit(X, y)
-
-    joblib.dump(model,        "data/model.pkl")
-    joblib.dump(FEATURE_COLS, "data/feature_cols.pkl")
-    print("Model saved.\n")
-
-    return model, labelled, unlabelled
-
-
+<div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(140px, 1fr))', gap:12, marginBottom:'2rem'}}>
+        {[
+          ['Stocks scored',  stocks.length, '#7F77DD'],
+          ['Score above 75', strong,        '#1D9E75'],
+          ['Score below 40', weak,          '#E24B4A'],
+        ].map(([label, val, color]) => (
+          <div key={label} style={{background:'#111', border:'1px solid #1e1e1e',
+                                   borderRadius:12, padding:'1rem 1.25rem'}}>
+            <div style={{fontSize:11, color:'#555', marginBottom:6,
+                         textTransform:'uppercase', letterSpacing:'0.06em'}}>{label}</div>
+            <div style={{fontSize:28, fontWeight:600, color}}>{val}</div>
+          </div>
+        ))}
+      </div>
 def score_all(model, unlabelled):
     if unlabelled.empty:
         print("No stocks to score.")
