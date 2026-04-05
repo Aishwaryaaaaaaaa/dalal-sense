@@ -41,7 +41,7 @@ export default function Home() {
       </div>
 
       <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(140px, 1fr))', gap:12, marginBottom:'2rem'}}>
-        gridTemplateColumns:'repeat(auto-fill, minmax(260px, 1fr))'
+        
                    
         {[
           ['Stocks scored',  stocks.length, '#7F77DD'],
