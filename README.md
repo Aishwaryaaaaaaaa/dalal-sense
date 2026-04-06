@@ -1,5 +1,10 @@
 # 📊 DalalSense  
 ### Finding India’s Next Compounders using Data & Machine Learning
+## 🌐 Live Demo
+
+👉 https://dalalsense.netlify.app
+
+Try the screener and scoring system in real time.
 
 DalalSense is a data-driven stock analysis project that explores a simple idea:
 
@@ -80,3 +85,6 @@ The model also returns **factor-level explanations**:
 - Valuation context  
 
 ---
+## ⚙️ Backend
+
+Powered by a FastAPI backend that serves model predictions.
