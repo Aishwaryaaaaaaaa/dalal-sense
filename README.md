@@ -10,7 +10,7 @@ DalalSense is a data-driven stock analysis project that explores a simple idea:
 
 > *Do great companies look similar before they become great?*
 
-The goal is to identify whether high-performing stocks (“compounders”) share measurable financial patterns early on — and use those patterns to evaluate current NSE-listed companies.
+The goal is to identify whether high-performing stocks (“compounders”) share measurable financial patterns early on and use those patterns to evaluate current NSE-listed companies.
 
 ---
 
