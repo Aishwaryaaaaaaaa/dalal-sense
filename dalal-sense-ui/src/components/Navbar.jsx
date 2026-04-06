@@ -19,7 +19,7 @@ export default function Navbar() {
         <span style={{fontSize:11, color:'#555', marginLeft:2}}>compounder score</span>
       </Link>
       <div className="flex gap-2">
-        {[['/', 'Screener'], ['/score', 'Score a stock']].map(([path, label]) => (
+        {[['/', 'Home'], ['/screener', 'Screener'], ['/score', 'Score a stock']].map(([path, label]) => (
           <Link key={path} to={path}
             style={{
               fontSize:13, padding:'6px 14px', borderRadius:999,
