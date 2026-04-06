@@ -72,6 +72,9 @@ def score_all(model, unlabelled):
     neg_rev = results["revenue_cagr"] < 0
     results.loc[neg_rev, "compounder_score"] = results.loc[neg_rev, "compounder_score"].clip(upper=70)
 
+    slow_growth = (results["revenue_cagr"] < 12) & (results["compounder_score"] > 85)
+    results.loc[slow_growth, "compounder_score"] = results.loc[slow_growth, "compounder_score"].clip(upper=82)
+
     results = results.sort_values("compounder_score", ascending=False)
     results.to_csv("data/scores.csv", index=False)
 
