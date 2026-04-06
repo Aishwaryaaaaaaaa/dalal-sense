@@ -19,18 +19,18 @@ export default function Navbar() {
         <span style={{fontSize:11, color:'#555', marginLeft:2}}>compounder score</span>
       </Link>
       <div className="flex gap-2">
-        {[['/', 'Home'], ['/screener', 'Screener'], ['/score', 'Score a stock']].map(([path, label]) => (
-          <Link key={path} to={path}
-            style={{
-              fontSize:13, padding:'6px 14px', borderRadius:999,
-              border: loc.pathname === path ? '1px solid #7F77DD' : '1px solid #222',
-              background: loc.pathname === path ? '#EEEDFE15' : 'transparent',
-              color: loc.pathname === path ? '#7F77DD' : '#888',
-              textDecoration:'none', fontWeight: loc.pathname === path ? 500 : 400
-            }}>
-            {label}
-          </Link>
-        ))}
+         {[['/', 'Home'], ['/screener', 'Screener'], ['/score', 'Score a stock']].map(([path, label]) => (
+  <Link key={path} to={path}
+    style={{
+      fontSize:13, padding:'6px 14px', borderRadius:999,
+      border: loc.pathname === path ? '1px solid #7F77DD' : '1px solid #222',
+      background: loc.pathname === path ? '#EEEDFE15' : 'transparent',
+      color: loc.pathname === path ? '#7F77DD' : '#888',
+      textDecoration:'none', fontWeight: loc.pathname === path ? 500 : 400
+    }}>
+    {label}
+  </Link>
+))}
       </div>
     </nav>
   )
