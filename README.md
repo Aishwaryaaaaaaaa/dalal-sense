@@ -2,7 +2,7 @@
 ### Finding India’s Next Compounders using Data & Machine Learning
 ## 🌐 Live Demo
 
-👉 https://dalalsense.netlify.app
+👉 https://dalalsenses.netlify.app
 
 Try the screener and scoring system in real time.
 
